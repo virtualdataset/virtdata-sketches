@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- Mermaid -->
+        <link rel="stylesheet" href="mermaid/mermaid.css">
+        <script type="text/javascript" src="mermaid/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true,useMaxWidth:false});</script>
+
+        <!-- functionplot -->
+        <!-- <script type="text/javascript" src="functionplot/d3.v3.min.js"></script> -->
+        <!-- <script type="text/javascript" src="functionplot/math.min.js"></script> -->
+        <!-- <script type="text/javascript" src="functionplot/function-plot.js"></script> -->
+
+        <!-- jsxgraph -->
+        <script type="text/javascript" src="jsxgraph/jsxgraphcore.js"></script>
+        <link rel="stylesheet" type="text/css" href="jsxgraph/jsxgraph.css" />
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: false,
+              balanceBraces: true,
+              skipTags: ["script","noscript","style","textarea","pre","code","annotation","annotation-xml"],
+              ignoreClass: "tex2jax_ignore"
+            },
+            asciimath2jax: {
+             delimiters: [
+                   ['`','`']
+                 ],
+             skipTags: ["script","noscript","style","textarea","pre","code","annotation","annotation-xml"],
+             preview: "AsciiMath"
+            },
+            showProcessingMessages: true,
+            messageStyle: "normal",
+            displayAlign: "center",
+            displayIndent: "0",
+            showMathMenu: true,
+            "HTML-CSS": { availableFonts: ["TeX"] }
+          });
+        </script>
+        <script type="text/javascript" src="mathjax/MathJax.js"></script>
+
+
+        <!-- nomnoml -->
+        <!--<script src="nomnoml/zepto.min.js"></script>-->
+        <script src="nomnoml/lodash.min.js"></script>
+        <script src="nomnoml/dagre.min.js"></script>
+        <script src="nomnoml/skanaar.util.js"></script>
+        <script src="nomnoml/skanaar.svg.js"></script>
+        <script src="nomnoml/skanaar.vector.js"></script>
+        <script src="nomnoml/skanaar.canvas.js"></script>
+        <script src="nomnoml/nomnoml.jison.js"></script>
+        <script src="nomnoml/nomnoml.parser.js"></script>
+        <script src="nomnoml/nomnoml.layouter.js"></script>
+        <script src="nomnoml/nomnoml.renderer.js"></script>
+        <script src="nomnoml/nomnoml.js"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <!--<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./chapter_1.html"><strong>1.</strong> Chapter 1</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <h1>Chapter 1</h1>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+
+                
+
+            </div>
+
+            
+
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <script>
+//            var target = document.getElementById('nomnoml-view1');
+//            var noml = document.getElementById('nomnoml-text1').innerHTML;
+
+            function escapeHtml(str) {
+                var div = document.createElement('div');
+                div.appendChild(document.createTextNode(str));
+                return div.innerHTML;
+            }
+
+            function createElement(str) {
+                var div = document.createElement('div');
+                div.innerHTML = str;
+                var container = document.createDocumentFragment();
+                for (var i=0; i < div.childNodes.length; i++) {
+                    var node = div.childNodes[i].cloneNode(true);
+                    container.appendChild(node);
+                }
+                return container.childNodes[0];
+            }
+            var elems = document.getElementsByClassName("nomnoml-text");
+            while (elems.length>0) {
+                var elem = elems[0];
+                var noml = elem.innerHTML;
+
+                try {
+                    var canvas = createElement("<canvas></canvas>");
+                    elem.parentNode.insertBefore(canvas,elem.nextSibling);
+
+                    nomnoml.draw(canvas,noml);
+                    elem.setAttribute("class","nomnoml-rendered");
+                } catch (err) {
+                    var errdiv = createElement("<div></div>");
+                    var textDiv = createElement("<pre></pre>");
+                    textDiv.innerText=elem.innerText;
+                    var errnode = createElement("<div><pre>" + err + "</pre></div>");
+                    errdiv.appendChild(textDiv);
+                    errdiv.appendChild(errnode);
+                    errdiv.setAttribute("class", "nomnoml-error");
+                    elem.parentNode.replaceChild(errdiv,elem);
+                }
+                // refresh
+                var elems = document.getElementsByClassName("nomnoml-text");
+            }
+
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
